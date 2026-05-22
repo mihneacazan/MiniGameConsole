@@ -25,8 +25,8 @@
 #define JOY_SW_PIN PD2
 
 // Additional Button Pins
-#define BTN_START PD3
-#define BTN_PAUSE PB0
+#define BTN_BACK PD3
+#define BTN_HOME PB0
 
 // ==================== TEST 1: RGB LED ====================
 void test_led(void) {
@@ -169,29 +169,29 @@ void test_oled(void) {
 void test_buttons(void) {
   usart_init(9600);
 
-  DDRD &= ~((1 << JOY_SW_PIN) | (1 << BTN_START));
-  PORTD |= (1 << JOY_SW_PIN) | (1 << BTN_START);
+  DDRD &= ~((1 << JOY_SW_PIN) | (1 << BTN_BACK));
+  PORTD |= (1 << JOY_SW_PIN) | (1 << BTN_BACK);
 
-  DDRB &= ~(1 << BTN_PAUSE);
-  PORTB |= (1 << BTN_PAUSE);
+  DDRB &= ~(1 << BTN_HOME);
+  PORTB |= (1 << BTN_HOME);
 
   usart_print_string("=== TEST 5: BUTTONS ===\n");
-  usart_print_string("Press in order: Joystick SW, START Button (PD3), PAUSE "
+  usart_print_string("Press in order: Joystick SW, BACK Button (PD3), HOME "
                      "Button (PB0)\n\n");
 
   while (1) {
     uint8_t sw = !(PIND & (1 << JOY_SW_PIN));
-    uint8_t start = !(PIND & (1 << BTN_START));
-    uint8_t pause = !(PINB & (1 << BTN_PAUSE));
+    uint8_t back = !(PIND & (1 << BTN_BACK));
+    uint8_t home = !(PINB & (1 << BTN_HOME));
 
     if (sw)
       usart_print_string("[JOY SW] ");
-    if (start)
-      usart_print_string("[START] ");
-    if (pause)
-      usart_print_string("[PAUSE] ");
+    if (back)
+      usart_print_string("[BACK] ");
+    if (home)
+      usart_print_string("[HOME] ");
 
-    if (sw || start || pause)
+    if (sw || back || home)
       usart_print_string("\n");
 
     _delay_ms(100);
@@ -219,11 +219,11 @@ int main(void) {
   pwm_init();
 
   // Configure button pins as INPUT with internal Pull-Up enabled
-  DDRD &= ~((1 << JOY_SW_PIN) | (1 << BTN_START));
-  PORTD |= (1 << JOY_SW_PIN) | (1 << BTN_START);
+  DDRD &= ~((1 << JOY_SW_PIN) | (1 << BTN_BACK));
+  PORTD |= (1 << JOY_SW_PIN) | (1 << BTN_BACK);
 
-  DDRB &= ~(1 << BTN_PAUSE);
-  PORTB |= (1 << BTN_PAUSE);
+  DDRB &= ~(1 << BTN_HOME);
+  PORTB |= (1 << BTN_HOME);
 
   // LED starts turned off
   set_rgb_color(0, 0, 0);
@@ -240,7 +240,7 @@ int main(void) {
   // Navigation and selection variables
   uint8_t prev_btn = 0;
   uint8_t prev_back = 0;
-  uint8_t prev_pause = 0;
+  uint8_t prev_home = 0;
   uint8_t current_game = GAME_BREAKOUT;
 
   enum { ST_CON, ST_GM, ST_LB, ST_MD, ST_NM, ST_BS, ST_BK, ST_FP };
@@ -265,13 +265,13 @@ int main(void) {
   while (1) {
     uint16_t joy_x = adc_read(JOY_X_CHANNEL), joy_y = adc_read(JOY_Y_CHANNEL);
     uint8_t btn = !(PIND & (1 << JOY_SW_PIN)),
-            back = !(PIND & (1 << BTN_START)),
-            pause_btn = !(PINB & (1 << BTN_PAUSE));
+            back = !(PIND & (1 << BTN_BACK)),
+            home_btn = !(PINB & (1 << BTN_HOME));
     uint8_t bp = btn && !prev_btn,
             bkp = back && !prev_back,
-            pause_p = pause_btn && !prev_pause;
+            home_p = home_btn && !prev_home;
 
-    if (pause_p) {
+    if (home_p) {
       buzzer_stop();
       set_rgb_color(0, 0, 0);
       state = ST_CON;
@@ -766,7 +766,7 @@ int main(void) {
     } // switch
     prev_btn = btn;
     prev_back = back;
-    prev_pause = pause_btn;
+    prev_home = home_btn;
     prev_jy = jy;
     prev_jx = jx;
     if (state == ST_BS)

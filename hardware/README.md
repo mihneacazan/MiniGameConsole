@@ -42,15 +42,22 @@ The buzzer uses CTC mode on Timer 1 to produce square wave sound effects at vari
 | **Negative (-)** | GND | - | Ground |
 
 ### 5. Control Buttons
-External momentary tactile buttons for starting and pausing the game.
+External momentary tactile buttons for navigation and resetting the console.
 | Button | ATmega328P Pin | Type | Description |
 | :--- | :--- | :--- | :--- |
-| **START Button** | PD3 | Digital Input | Start game / Select option (internal pull-up) |
-| **PAUSE Button** | PB0 | Digital Input | Pause/unpause gameplay (internal pull-up) |
+| **BACK Button** | PD3 | Digital Input | Navigate back / Return to previous menu OR Pause/unpause gameplay (internal pull-up) |
+| **HOME Button** | PB0 | Digital Input | Reset console state / Return directly to game selection screen (internal pull-up) |
 
 ---
 
-## Adding your files
-Place your schematics and circuit diagrams here:
-- **Formats**: PNG, PDF, or Fritzing `.fzz` files.
-- **Reference**: Once uploaded, link them directly in the main [README.md](../README.md).
+## 📊 Schematics & Diagrams
+
+### 1. Block Diagram
+The block diagram illustrates the basic architecture of the console and how the peripherals communicate with the ATmega328P microcontroller via I2C, ADC, PWM, and digital input/output interfaces.
+
+![Block Diagram](image-2.png)
+
+### 2. Electrical Schematic
+The detailed electrical schematic presents the pin-to-pin connections between the ATmega328P Xplained Mini development board and all peripherals (OLED display, joystick, RGB LED, passive buzzer, and tactile buttons), along with the necessary current-limiting resistors.
+
+![Electrical Schematic](image-3.png)
