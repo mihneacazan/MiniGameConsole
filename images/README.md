@@ -1,18 +1,10 @@
-# Project Images Directory
+# Project Photo Gallery
 
-This directory is dedicated to storing photos and visual media representing the physical assembly, 3D-printed casing, and gameplay of the **MiniGameConsole**.
+This directory is dedicated to storing photos and visual media representing the physical assembly, casing, and gameplay of the **MiniGameConsole**.
 
-## Recommended Media to Upload
-To present your project professionally at the **PM-Fair**, upload:
-1. **Physical console assembly** (close-ups of the breadboard/perfboard, microcontroller, and wiring).
-2. **Casing & Enclosure** (photos showing the final port cuts, button placement, and ergonomics).
-3. **Gameplay snapshots** (action shots of Flappy Bird and Breakout on the OLED screen).
+## TODO: Upload Project Photos
+- [ ] Upload photo of the physical console assembly (e.g., `console_front.jpg`)
+- [ ] Upload photo of the enclosure/casing (e.g., `console_casing.jpg`)
+- [ ] Upload snapshots of gameplay (e.g., `gameplay_breakout.jpg`, `gameplay_flappy.jpg`)
 
-## Naming Guidelines
-Name your files descriptively, e.g.:
-- `console_front.jpg`
-- `console_inside.jpg`
-- `flappy_gameplay.jpg`
-- `breakout_gameplay.jpg`
-
-These can be directly linked inside the main root [README.md](../README.md).
+Once uploaded, these can be referenced in the main project [README.md](../README.md).
