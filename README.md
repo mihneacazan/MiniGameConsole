@@ -9,6 +9,7 @@ The entire project is written in **bare-metal C (AVR-GCC)**, with no Arduino lib
 ## Table of Contents
 
 - [General Description](#general-description)
+- [Video Demo](#video-demo)
 - [Hardware Components](#hardware-components)
 - [Block Diagram](#block-diagram)
 - [Electrical Schematic](#electrical-schematic)
@@ -44,6 +45,12 @@ Breakout also features a pre-game settings screen where the player can adjust ba
 
 ---
 
+## Video Demo
+
+Project Demo: **[Watch Video Demo](https://drive.google.com/file/d/1Ku0gMX8YAwAy4_f3ThMjZ6lDsRshhfK5/view?usp=sharing)**.
+
+---
+
 ## Hardware Components
 
 | # | Component | Role | Interface |
@@ -55,7 +62,7 @@ Breakout also features a pre-game settings screen where the player can adjust ba
 | 5 | **Passive Buzzer** | Sound effects and melodies | CTC on PB1 via Timer 1 |
 | 6 | **BACK Button** | Menu navigation / Pause toggle | Digital input PD3 (internal pull-up) |
 | 7 | **HOME Button** | Reset to home screen | Digital input PB0 (internal pull-up) |
-| 8 | **5× 220Ω Resistors** | Current limiting for RGB LED channels | Series with LED anodes |
+| 8 | **3× 220Ω Resistors** | Current limiting for RGB LED channels | Series with LED anodes |
 
 Complete pin mapping and wiring details: **[Hardware README](hardware/README.md)**
 
