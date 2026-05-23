@@ -1,10 +1,22 @@
-# Project Photo Gallery
+# MiniGameConsole Photo Gallery
 
-This directory is dedicated to storing photos and visual media representing the physical assembly, casing, and gameplay of the **MiniGameConsole**.
+This gallery showcases the physical assembly, component layout, and active gameplay screens of the **MiniGameConsole**.
 
-## TODO: Upload Project Photos
-- [ ] Upload photo of the physical console assembly (e.g., `console_front.jpg`)
-- [ ] Upload photo of the enclosure/casing (e.g., `console_casing.jpg`)
-- [ ] Upload snapshots of gameplay (e.g., `gameplay_breakout.jpg`, `gameplay_flappy.jpg`)
+## Console Overview
+The console is built around the ATmega328P Xplained Mini development board, featuring a custom breadboard assembly, a dual-axis analog joystick, dedicated tactical buttons (BACK and HOME), an RGB status LED, a passive buzzer, and a 128×64 SSD1306 OLED display.
 
-Once uploaded, these can be referenced in the main project [README.md](../README.md).
+![MiniGameConsole Physical Assembly](Project_Overview.jpg)
+
+---
+
+## Gameplay Snapshots
+
+### Flappy Bird
+In Flappy Bird, the player navigates the bird through randomly generated obstacle pipes by pressing the joystick click button to flap. The game features real-time gravity simulation, ascending score counts, dynamic RGB LED color changes, and passive buzzer sound effects.
+
+![Flappy Bird Gameplay](FlappyBird.jpg)
+
+### Breakout
+In Breakout, the player controls the paddle horizontally using the analog joystick to bounce the ball and destroy a grid of 4×8 bricks. The ball bounces off the borders, paddle, and bricks. The paddle settings screen allows tuning ball speed, paddle speed, and starting lives.
+
+![Breakout Gameplay](Breakout.jpg)

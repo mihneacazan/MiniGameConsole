@@ -273,7 +273,10 @@ A compile-time macro `TEST_TASK` in `main.c` selects between isolated hardware t
 
 ## Project Photos
 
-👉 **[Project Photo Gallery](images/README.md)**
+![MiniGameConsole Physical Assembly](images/Project_Overview.jpg)
+
+For the complete screenshot gallery and gameplay showcases, visit the **[Project Photo Gallery](images/README.md)**.
+
 
 ---
 
